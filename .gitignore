@@ -1,0 +1,14 @@
+/bin
+/build
+/dist
+/docs
+/lib
+/data
+/.*/
+*.sla
+.classpath
+.project
+.launch
+/eclipse
+gradle/
+gradlew*
