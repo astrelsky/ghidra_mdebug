@@ -27,7 +27,7 @@ public enum EcoffSc implements EcoffEnumConverter {
     /** value is undefined */
     UNDEFINED(6),
 
-    /** variable's value is IN se->va.?? */
+    /** variable's value is IN se-&gt;va.?? */
     CDBLOCAL(7),
 
     /** this is a bit field */
