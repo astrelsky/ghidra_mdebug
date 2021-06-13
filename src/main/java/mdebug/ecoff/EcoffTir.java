@@ -85,7 +85,7 @@ public class EcoffTir implements Iterable<EcoffTypeQualifier> {
 			struct.addBitField(EcoffTypeQualifier.dataType, 4, "tq1", null);
 			struct.addBitField(EcoffTypeQualifier.dataType, 4, "tq2", null);
 			struct.addBitField(EcoffTypeQualifier.dataType, 4, "tq3", null);
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);
