@@ -3,7 +3,7 @@ package mdebug.ecoff;
 import ghidra.program.model.data.DataType;
 
 public enum EcoffBasicType implements EcoffEnumConverter {
-	
+
 	NIL((byte) 0),
 	ADR((byte) 1),
 	CHAR((byte) 2),
@@ -33,7 +33,6 @@ public enum EcoffBasicType implements EcoffEnumConverter {
 	VOID((byte) 26),
 	LONGLONG((byte) 27),
 	ULONGLONG((byte) 28),
-	UNDEFINED((byte) 29), // I made this one up. It'll never be returned
 	LONG64((byte) 30),
 	ULONG64((byte) 31),
 	LONGLONG64((byte) 32),
@@ -42,7 +41,7 @@ public enum EcoffBasicType implements EcoffEnumConverter {
 	INT64((byte) 35),
 	UINT64((byte) 36),
 	MAX((byte) 64);
-	
+
 	public static final DataType dataType =
 		EcoffEnumConverterUtil.toDataType(EcoffBasicType.class);
 
@@ -58,7 +57,8 @@ public enum EcoffBasicType implements EcoffEnumConverter {
 	}
 
 	public static EcoffBasicType toEnum(int value) {
-		if (value >= NIL.value && value <= UINT64.value && value != UNDEFINED.value) {
+		if ((value >= NIL.value && value <= ULONGLONG.value)
+			|| (value >= LONG64.value && value <= UINT64.value)) {
 			return values()[value];
 		}
 		if (value == MAX.value) {
@@ -66,5 +66,5 @@ public enum EcoffBasicType implements EcoffEnumConverter {
 		}
 		return null;
 	}
-	
+
 }
