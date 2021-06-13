@@ -53,14 +53,14 @@ class EcoffLongLineNumber implements EcoffLineNumber {
 		}
 	}
 
-    @Override
-    public DataType toDataType() throws DuplicateNameException {
-        DataType dt = StructConverterUtil.toDataType(this);
-        try {
-            dt.setNameAndCategory(EcoffHdrr.ECOFF_PATH, "LINER");
-        } catch (InvalidNameException e) {
-            // not invalid
-        }
-        return dt;
-    }
+	@Override
+	public DataType toDataType() throws DuplicateNameException {
+		DataType dt = StructConverterUtil.toDataType(this);
+		try {
+			dt.setNameAndCategory(EcoffHdrr.ECOFF_PATH, "LINER");
+		} catch (InvalidNameException e) {
+			// not invalid
+		}
+		return dt;
+	}
 }

@@ -22,46 +22,46 @@ public class EcoffPdr {
 
 	public final static DataType BOOL = BooleanDataType.dataType;
 
-    /** memory address of start of procedure */
-    private final int addr;
+	/** memory address of start of procedure */
+	private final int addr;
 
-    /** start of local symbol entries */
-    private final int isym;
+	/** start of local symbol entries */
+	private final int isym;
 
-    /** start of line number entries */
-    private final int iline;
+	/** start of line number entries */
+	private final int iline;
 
-    /** save register mask */
-    private final int regmask;
+	/** save register mask */
+	private final int regmask;
 
-    /** save register offset */
-    private final int regoffset;
+	/** save register offset */
+	private final int regoffset;
 
-    /** start of optimization symbol entries */
-    private final int iopt;
+	/** start of optimization symbol entries */
+	private final int iopt;
 
-    /** save floating point register mask */
-    private final int fregmask;
+	/** save floating point register mask */
+	private final int fregmask;
 
-    /** save floating point register offset */
-    private final int fregoffset;
+	/** save floating point register offset */
+	private final int fregoffset;
 
-    /** frame size */
-    private final int frameoffset;
+	/** frame size */
+	private final int frameoffset;
 
-    /** frame pointer register */
-    private final short framereg;
+	/** frame pointer register */
+	private final short framereg;
 
-    /** offset or reg of return pc */
-    private final short pcreg;
+	/** offset or reg of return pc */
+	private final short pcreg;
 
-    /** lowest line in the procedure */
-    private final int lnLow;
+	/** lowest line in the procedure */
+	private final int lnLow;
 
-    /** highest line in the procedure */
-    private final int lnHigh;
+	/** highest line in the procedure */
+	private final int lnHigh;
 
-    /** byte offset for this procedure from the fd base */
+	/** byte offset for this procedure from the fd base */
 	private final int cbLineOffset;
 
 	/** byte size of GP prologue */
@@ -92,21 +92,21 @@ public class EcoffPdr {
 		this(reader, is64Bit, Collections.emptyList());
 	}
 
-    public EcoffPdr(BinaryReader reader, boolean is64Bit, List<EcoffSymr> symrs) throws IOException {
+	public EcoffPdr(BinaryReader reader, boolean is64Bit, List<EcoffSymr> symrs) throws IOException {
 		this.is64bit = is64Bit;
-        this.addr = reader.readNextInt();
+		this.addr = reader.readNextInt();
 		this.isym = reader.readNextInt();
-        this.iline = reader.readNextInt();
-        this.regmask = reader.readNextInt();
-        this.regoffset = reader.readNextInt();
-        this.iopt = reader.readNextInt();
-        this.fregmask = reader.readNextInt();
-        this.fregoffset = reader.readNextInt();
-        this.frameoffset = reader.readNextInt();
-        this.framereg = reader.readNextShort();
-        this.pcreg = reader.readNextShort();
-        this.lnLow = reader.readNextInt();
-        this.lnHigh = reader.readNextInt();
+		this.iline = reader.readNextInt();
+		this.regmask = reader.readNextInt();
+		this.regoffset = reader.readNextInt();
+		this.iopt = reader.readNextInt();
+		this.fregmask = reader.readNextInt();
+		this.fregoffset = reader.readNextInt();
+		this.frameoffset = reader.readNextInt();
+		this.framereg = reader.readNextShort();
+		this.pcreg = reader.readNextShort();
+		this.lnLow = reader.readNextInt();
+		this.lnHigh = reader.readNextInt();
 		this.cbLineOffset = reader.readNextInt();
 
 		if (is64bit) {
@@ -171,102 +171,102 @@ public class EcoffPdr {
 		return null;
 	}
 
-    /**
-     * @return the adr
-     */
-    public int getAdr() {
-        return addr;
-    }
+	/**
+	 * @return the adr
+	 */
+	public int getAdr() {
+		return addr;
+	}
 
-    /**
-     * @return the isym
-     */
-    public int getIsym() {
-        return isym;
-    }
+	/**
+	 * @return the isym
+	 */
+	public int getIsym() {
+		return isym;
+	}
 
-    /**
-     * @return the iline
-     */
-    public int getIline() {
-        return iline;
-    }
+	/**
+	 * @return the iline
+	 */
+	public int getIline() {
+		return iline;
+	}
 
-    /**
-     * @return the regmask
-     */
-    public int getRegmask() {
-        return regmask;
-    }
+	/**
+	 * @return the regmask
+	 */
+	public int getRegmask() {
+		return regmask;
+	}
 
-    /**
-     * @return the regoffset
-     */
-    public int getRegoffset() {
-        return regoffset;
-    }
+	/**
+	 * @return the regoffset
+	 */
+	public int getRegoffset() {
+		return regoffset;
+	}
 
-    /**
-     * @return the iopt
-     */
-    public int getIopt() {
-        return iopt;
-    }
+	/**
+	 * @return the iopt
+	 */
+	public int getIopt() {
+		return iopt;
+	}
 
-    /**
-     * @return the fregmask
-     */
-    public int getFregmask() {
-        return fregmask;
-    }
+	/**
+	 * @return the fregmask
+	 */
+	public int getFregmask() {
+		return fregmask;
+	}
 
-    /**
-     * @return the fregoffset
-     */
-    public int getFregoffset() {
-        return fregoffset;
-    }
+	/**
+	 * @return the fregoffset
+	 */
+	public int getFregoffset() {
+		return fregoffset;
+	}
 
-    /**
-     * @return the frameoffset
-     */
-    public int getFrameoffset() {
-        return frameoffset;
-    }
+	/**
+	 * @return the frameoffset
+	 */
+	public int getFrameoffset() {
+		return frameoffset;
+	}
 
-    /**
-     * @return the framereg
-     */
-    public short getFramereg() {
-        return framereg;
-    }
+	/**
+	 * @return the framereg
+	 */
+	public short getFramereg() {
+		return framereg;
+	}
 
-    /**
-     * @return the pcreg
-     */
-    public short getPcreg() {
-        return pcreg;
-    }
+	/**
+	 * @return the pcreg
+	 */
+	public short getPcreg() {
+		return pcreg;
+	}
 
-    /**
-     * @return the lnLow
-     */
-    public int getLnLow() {
-        return lnLow;
-    }
+	/**
+	 * @return the lnLow
+	 */
+	public int getLnLow() {
+		return lnLow;
+	}
 
-    /**
-     * @return the lnHigh
-     */
-    public int getLnHigh() {
-        return lnHigh;
-    }
+	/**
+	 * @return the lnHigh
+	 */
+	public int getLnHigh() {
+		return lnHigh;
+	}
 
-    /**
-     * @return the cbLineOffset
-     */
-    public int getCbLineOffset() {
-        return cbLineOffset;
+	/**
+	 * @return the cbLineOffset
+	 */
+	public int getCbLineOffset() {
+		return cbLineOffset;
 	}
 
 		/**
@@ -333,7 +333,7 @@ public class EcoffPdr {
 			}
 		}
 		struct.setToMachineAlignment();
-        return struct;
+		return struct;
 	}
 
 	public static int getDataTypeLength(boolean is64Bit) {

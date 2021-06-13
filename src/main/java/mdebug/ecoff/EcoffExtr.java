@@ -45,10 +45,10 @@ public final class EcoffExtr {
 
 	public static final DataType dataType = getDataType();
 
-    public EcoffExtr(BinaryReader reader, EcoffStringTable sTable) throws IOException {
+	public EcoffExtr(BinaryReader reader, EcoffStringTable sTable) throws IOException {
 		final Scalar scalar = new Scalar(4, reader.readNextShort(), false);
-        this.jmptbl = scalar.testBit(1);
-        this.cobol_main = scalar.testBit(2);
+		this.jmptbl = scalar.testBit(1);
+		this.cobol_main = scalar.testBit(2);
 		this.weakext = scalar.testBit(3);
 		this.deltacplus = scalar.testBit(4);
 		this.multiext = scalar.testBit(5);
@@ -82,25 +82,25 @@ public final class EcoffExtr {
 		return super.toString();
 	}
 
-    /**
-     * @return the jmptbl
-     */
-    public boolean isJmptbl() {
-        return jmptbl;
-    }
+	/**
+	 * @return the jmptbl
+	 */
+	public boolean isJmptbl() {
+		return jmptbl;
+	}
 
-    /**
-     * @return the cobol_main
-     */
-    public boolean isCobolMain() {
-        return cobol_main;
-    }
+	/**
+	 * @return the cobol_main
+	 */
+	public boolean isCobolMain() {
+		return cobol_main;
+	}
 
-    /**
-     * @return the weakext
-     */
-    public boolean isWeakExt() {
-        return weakext;
+	/**
+	 * @return the weakext
+	 */
+	public boolean isWeakExt() {
+		return weakext;
 	}
 
 	/**
@@ -124,11 +124,11 @@ public final class EcoffExtr {
 		return ifd;
 	}
 
-    /**
-     * @return the symr
-     */
-    public EcoffSymr getSymr() {
-        return symr;
+	/**
+	 * @return the symr
+	 */
+	public EcoffSymr getSymr() {
+		return symr;
 	}
 
 	private static final DataType getDataType() {

@@ -2,6 +2,6 @@ package mdebug.ecoff;
 
 public interface EcoffEnumConverter {
 
-    long getValue();
+	long getValue();
 
 }

@@ -27,82 +27,82 @@ import static ghidra.app.util.bin.StructConverter.*;
  */
 public final class EcoffHdrr {
 
-    public static final short MAGIC = 0x7009;
+	public static final short MAGIC = 0x7009;
 
-    /** 0x7009 */
-    private final short magic;
+	/** 0x7009 */
+	private final short magic;
 
-    /** version stamp */
-    private final short vstamp;
+	/** version stamp */
+	private final short vstamp;
 
-    /** number of line number entries */
-    private final int ilineMax;
+	/** number of line number entries */
+	private final int ilineMax;
 
 	// line numbers are compressed!
-    /** number of bytes for line number entries */
-    private final int cbLine;
+	/** number of bytes for line number entries */
+	private final int cbLine;
 
-    /** offset to start of line number entries */
-    final int cbLineOffset;
+	/** offset to start of line number entries */
+	final int cbLineOffset;
 
-    /** max index into dense number table */
-    private final int idnMax;
+	/** max index into dense number table */
+	private final int idnMax;
 
-    /** offset to start dense number table */
-    private final int cbDnOffset;
+	/** offset to start dense number table */
+	private final int cbDnOffset;
 
-    /** number of procedures */
-    private final int ipdMax;
+	/** number of procedures */
+	private final int ipdMax;
 
-    /** offset to procedure descriptor table */
-    final int cbPdOffset;
+	/** offset to procedure descriptor table */
+	final int cbPdOffset;
 
-    /** number of local symbols */
-    private final int isymMax;
+	/** number of local symbols */
+	private final int isymMax;
 
-    /** offset to start of local symbols */
-    final int cbSymOffset;
+	/** offset to start of local symbols */
+	final int cbSymOffset;
 
-    /** max index into optimization symbol entries */
-    private final int ioptMax;
+	/** max index into optimization symbol entries */
+	private final int ioptMax;
 
-    /** offset to optimization symbol entries */
-    private final int cbOptOffset;
+	/** offset to optimization symbol entries */
+	private final int cbOptOffset;
 
-    /** number of auxillary symbol entries */
-    private final int iauxMax;
+	/** number of auxillary symbol entries */
+	private final int iauxMax;
 
-    /** offset to start of auxillary symbol entries */
-    private final int cbAuxOffset;
+	/** offset to start of auxillary symbol entries */
+	private final int cbAuxOffset;
 
-    /** max index into local strings */
-    private final int issMax;
+	/** max index into local strings */
+	private final int issMax;
 
-    /** offset to start of local strings */
-    final int cbSsOffset;
+	/** offset to start of local strings */
+	final int cbSsOffset;
 
-    /** max index into external strings */
-    private final int issExtMax;
+	/** max index into external strings */
+	private final int issExtMax;
 
-    /** offset to start of external strings */
-    final int cbSsExtOffset;
+	/** offset to start of external strings */
+	final int cbSsExtOffset;
 
-    /** number of file descriptor entries */
-    private final int ifdMax;
+	/** number of file descriptor entries */
+	private final int ifdMax;
 
-    /** offset to file descriptor table */
-    private final int cbFdOffset;
+	/** offset to file descriptor table */
+	private final int cbFdOffset;
 
-    /** number of relative file descriptor entries */
-    private final int crfd;
+	/** number of relative file descriptor entries */
+	private final int crfd;
 
-    /** offset to relative file descriptor table */
-    private final int cbRfdOffset;
+	/** offset to relative file descriptor table */
+	private final int cbRfdOffset;
 
-    /** max index into external symbols */
-    private final int iextMax;
+	/** max index into external symbols */
+	private final int iextMax;
 
-    /** offset to start of external symbol entries */
+	/** offset to start of external symbol entries */
 	private final int cbExtOffset;
 
 	protected final BinaryReader reader;
@@ -445,113 +445,113 @@ public final class EcoffHdrr {
 	 * @return true if a valid ECOFF HDRR
 	 * @throws IOException if an IOException occurs reading the data
 	 */
-    public static boolean isValid(BinaryReader reader) throws IOException {
-        return reader.peekNextShort() == MAGIC;
-    }
-
-    /**
-     * @return the magic
-     */
-    public short getMagic() {
-        return magic;
-    }
-
-    /**
-     * @return the version stamp
-     */
-    public short getVstamp() {
-        return vstamp;
-    }
-
-    /**
-     * @return the max number of lines (uncompressed)
-     */
-    public int getIlineMax() {
-        return ilineMax;
-    }
-
-    /**
-     * @return the number of compressed bytes in the line table
-     */
-    public int getCbLine() {
-        return cbLine;
+	public static boolean isValid(BinaryReader reader) throws IOException {
+		return reader.peekNextShort() == MAGIC;
 	}
 
-    /**
-     * @return the total number of Dense Number Records
-     */
-    public int getIdnMax() {
-        return idnMax;
-    }
+	/**
+	 * @return the magic
+	 */
+	public short getMagic() {
+		return magic;
+	}
 
-    /**
-     * @return the total number of Procedure Descriptor Records
-     */
-    public int getIpdMax() {
-        return ipdMax;
-    }
+	/**
+	 * @return the version stamp
+	 */
+	public short getVstamp() {
+		return vstamp;
+	}
 
-    /**
-     * @return the total number of Local Symbol Records
-     */
-    public int getIsymMax() {
-        return isymMax;
-    }
+	/**
+	 * @return the max number of lines (uncompressed)
+	 */
+	public int getIlineMax() {
+		return ilineMax;
+	}
 
-    /**
-     * @return the total number of Optimization Records
-     */
-    public int getIoptMax() {
-        return ioptMax;
-    }
+	/**
+	 * @return the number of compressed bytes in the line table
+	 */
+	public int getCbLine() {
+		return cbLine;
+	}
 
-    /**
-     * @return the total number of Auxillary Records
-     */
-    public int getIauxMax() {
-        return iauxMax;
-    }
+	/**
+	 * @return the total number of Dense Number Records
+	 */
+	public int getIdnMax() {
+		return idnMax;
+	}
 
-    /**
-     * @return the length of the string table in bytes.
-     */
-    public int getIssMax() {
-        return issMax;
-    }
+	/**
+	 * @return the total number of Procedure Descriptor Records
+	 */
+	public int getIpdMax() {
+		return ipdMax;
+	}
 
-    /**
-     * @return the length of the external string table in bytes.
-     */
-    public int getIssExtMax() {
-        return issExtMax;
-    }
+	/**
+	 * @return the total number of Local Symbol Records
+	 */
+	public int getIsymMax() {
+		return isymMax;
+	}
 
-    /**
-     * @return the total number of File Descriptor Records
-     */
-    public int getIfdMax() {
-        return ifdMax;
-    }
+	/**
+	 * @return the total number of Optimization Records
+	 */
+	public int getIoptMax() {
+		return ioptMax;
+	}
 
-    /**
-     * @return the total number of Relative File Descriptor Records
-     */
-    public int getCrfd() {
-        return crfd;
-    }
+	/**
+	 * @return the total number of Auxillary Records
+	 */
+	public int getIauxMax() {
+		return iauxMax;
+	}
 
-    /**
-     * @return the total number of External Symbol Records
-     */
-    public int getIextMax() {
-        return iextMax;
+	/**
+	 * @return the length of the string table in bytes.
+	 */
+	public int getIssMax() {
+		return issMax;
+	}
+
+	/**
+	 * @return the length of the external string table in bytes.
+	 */
+	public int getIssExtMax() {
+		return issExtMax;
+	}
+
+	/**
+	 * @return the total number of File Descriptor Records
+	 */
+	public int getIfdMax() {
+		return ifdMax;
+	}
+
+	/**
+	 * @return the total number of Relative File Descriptor Records
+	 */
+	public int getCrfd() {
+		return crfd;
+	}
+
+	/**
+	 * @return the total number of External Symbol Records
+	 */
+	public int getIextMax() {
+		return iextMax;
 	}
 
 	FileOffsetAddressFinder getAddressFinder() {
 		return finder;
 	}
 
-    public static DataType getDataType(boolean is64Bit) {
+	public static DataType getDataType(boolean is64Bit) {
 		Structure struct = new StructureDataType(ECOFF_PATH, "HDRR", 0);
 		struct.add(WORD, "magic", "0x7009");
 		struct.add(WORD, "vstamp", "version stamp");
@@ -583,10 +583,10 @@ public final class EcoffHdrr {
 		return struct;
 	}
 
-    public DataType toDataType() {
-        return getDataType(is64Bit);
+	public DataType toDataType() {
+		return getDataType(is64Bit);
 	}
-	
+
 	public boolean is64Bit() {
 		return is64Bit;
 	}

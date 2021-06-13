@@ -1,14 +1,14 @@
 // Builds a Ghidra Extension for a given Ghidra installation.
 //
-// An absolute path to the Ghidra installation directory must be supplied either by setting the 
+// An absolute path to the Ghidra installation directory must be supplied either by setting the
 // GHIDRA_INSTALL_DIR environment variable or Gradle project property:
 //
-//     > export GHIDRA_INSTALL_DIR=<Absolute path to Ghidra> 
-//     > gradle
+//	 > export GHIDRA_INSTALL_DIR=<Absolute path to Ghidra>
+//	 > gradle
 //
-//         or
+//		 or
 //
-//     > gradle -PGHIDRA_INSTALL_DIR=<Absolute path to Ghidra>
+//	 > gradle -PGHIDRA_INSTALL_DIR=<Absolute path to Ghidra>
 //
 // Gradle should be invoked from the directory of the project to build.  Please see the
 // application.gradle.version property in <GHIDRA_INSTALL_DIR>/Ghidra/application.properties

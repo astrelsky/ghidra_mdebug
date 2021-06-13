@@ -14,124 +14,124 @@ import static ghidra.app.util.bin.StructConverter.*;
  */
 public final class EcoffRpdr {
 
-    /** memory address of start of procedure */
-    private final int addr;
+	/** memory address of start of procedure */
+	private final int addr;
 
-    /** save register mask */
-    private final int regmask;
+	/** save register mask */
+	private final int regmask;
 
-    /** save register offset */
-    private final int regoffset;
+	/** save register offset */
+	private final int regoffset;
 
-    /** save floating point register mask */
-    private final int fregmask;
+	/** save floating point register mask */
+	private final int fregmask;
 
-    /** save floating point register offset */
-    private final int fregoffset;
+	/** save floating point register offset */
+	private final int fregoffset;
 
-    /** frame size */
-    private final int frameoffset;
+	/** frame size */
+	private final int frameoffset;
 
-    /** frame pointer register */
-    private final short framereg;
+	/** frame pointer register */
+	private final short framereg;
 
-    /** offset or reg of return pc */
-    private final short pcreg;
+	/** offset or reg of return pc */
+	private final short pcreg;
 
-    /** index into the runtime string table */
-    private final int irpss;
+	/** index into the runtime string table */
+	private final int irpss;
 
-    /** pointer to exception array */
+	/** pointer to exception array */
 	private final int exception_info;
-	
+
 	public static final DataType dataType = getDataType();
 
-    public EcoffRpdr(BinaryReader reader) throws IOException {
-        this.addr = reader.readNextInt();
-        this.regmask = reader.readNextInt();
-        this.regoffset = reader.readNextInt();
-        this.fregmask = reader.readNextInt();
-        this.fregoffset = reader.readNextInt();
-        this.frameoffset = reader.readNextInt();
-        this.framereg = reader.readNextShort();
-        this.pcreg = reader.readNextShort();
-        this.irpss = reader.readNextInt();
-        // skip the reserved field
-        reader.readNextInt();
-        this.exception_info = reader.readNextInt();
-    }
+	public EcoffRpdr(BinaryReader reader) throws IOException {
+		this.addr = reader.readNextInt();
+		this.regmask = reader.readNextInt();
+		this.regoffset = reader.readNextInt();
+		this.fregmask = reader.readNextInt();
+		this.fregoffset = reader.readNextInt();
+		this.frameoffset = reader.readNextInt();
+		this.framereg = reader.readNextShort();
+		this.pcreg = reader.readNextShort();
+		this.irpss = reader.readNextInt();
+		// skip the reserved field
+		reader.readNextInt();
+		this.exception_info = reader.readNextInt();
+	}
 
-    /**
-     * @return the adr
-     */
-    public int getAdr() {
-        return addr;
-    }
+	/**
+	 * @return the adr
+	 */
+	public int getAdr() {
+		return addr;
+	}
 
-    /**
-     * @return the regmask
-     */
-    public int getRegmask() {
-        return regmask;
-    }
+	/**
+	 * @return the regmask
+	 */
+	public int getRegmask() {
+		return regmask;
+	}
 
-    /**
-     * @return the regoffset
-     */
-    public int getRegoffset() {
-        return regoffset;
-    }
+	/**
+	 * @return the regoffset
+	 */
+	public int getRegoffset() {
+		return regoffset;
+	}
 
-    /**
-     * @return the fregmask
-     */
-    public int getFregmask() {
-        return fregmask;
-    }
+	/**
+	 * @return the fregmask
+	 */
+	public int getFregmask() {
+		return fregmask;
+	}
 
-    /**
-     * @return the fregoffset
-     */
-    public int getFregoffset() {
-        return fregoffset;
-    }
+	/**
+	 * @return the fregoffset
+	 */
+	public int getFregoffset() {
+		return fregoffset;
+	}
 
-    /**
-     * @return the frameoffset
-     */
-    public int getFrameoffset() {
-        return frameoffset;
-    }
+	/**
+	 * @return the frameoffset
+	 */
+	public int getFrameoffset() {
+		return frameoffset;
+	}
 
-    /**
-     * @return the framereg
-     */
-    public short getFrameReg() {
-        return framereg;
-    }
+	/**
+	 * @return the framereg
+	 */
+	public short getFrameReg() {
+		return framereg;
+	}
 
-    /**
-     * @return the pcreg
-     */
-    public short getPcReg() {
-        return pcreg;
-    }
+	/**
+	 * @return the pcreg
+	 */
+	public short getPcReg() {
+		return pcreg;
+	}
 
-    /**
-     * @return the irpss
-     */
-    public int getIrpss() {
-        return irpss;
-    }
+	/**
+	 * @return the irpss
+	 */
+	public int getIrpss() {
+		return irpss;
+	}
 
-    /**
-     * @return the exception_info
-     */
-    public int getExceptionInfo() {
-        return exception_info;
-    }
+	/**
+	 * @return the exception_info
+	 */
+	public int getExceptionInfo() {
+		return exception_info;
+	}
 
-    private static final DataType getDataType() {
+	private static final DataType getDataType() {
 		Structure struct = new StructureDataType(EcoffHdrr.ECOFF_PATH, "RPDR", 0);
 		struct.add(DWORD, "addr", "memory address of start of procedure");
 		struct.add(DWORD, "regmask", "save register mask");
@@ -145,5 +145,5 @@ public final class EcoffRpdr {
 		struct.add(DWORD, "exception_info", "pointer to exception array");
 		return struct;
 	}
-    
+
 }

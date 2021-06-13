@@ -59,15 +59,15 @@ public class EcoffSectionHeader {
 
 	public EcoffSectionHeader(BinaryReader reader, EcoffFileHdr header) throws IOException {
 		name = reader.readNextAsciiString(8);
-		s_paddr    = reader.readNextInt();
-		s_vaddr    = reader.readNextInt();
-		s_size     = reader.readNextInt();
+		s_paddr	= reader.readNextInt();
+		s_vaddr	= reader.readNextInt();
+		s_size	 = reader.readNextInt();
 		s_scnptr   = reader.readNextInt();
 		s_relptr   = reader.readNextInt();
 		s_lnnoptr  = reader.readNextInt();
 		s_nreloc   = reader.readNextShort();
-		s_nlnno    = reader.readNextShort();
-		s_flags    = EcoffSectionType.toEnum(reader.readNextInt());
+		s_nlnno	= reader.readNextShort();
+		s_flags	= EcoffSectionType.toEnum(reader.readNextInt());
 	}
 
 	private static final DataType getDataType() {
@@ -100,7 +100,7 @@ public class EcoffSectionHeader {
 			reader.setPointerIndex(origIndex);
 		}
 	}
-	
+
 	private void parseRelocations(BinaryReader reader, TaskMonitor monitor)
 			throws IOException {
 		reader.setPointerIndex(s_relptr);
@@ -205,7 +205,7 @@ public class EcoffSectionHeader {
 		return _lineNumbers;
 	}
 
-	
+
 	public boolean isUninitializedData() {
 		switch(s_flags) {
 			case STYP_BSS:
