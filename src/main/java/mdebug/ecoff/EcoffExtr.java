@@ -142,7 +142,7 @@ public final class EcoffExtr {
 			struct.addBitField(WORD, 11, "reserved", "reserved for future use");
 			struct.add(WORD, "ifd", " where the iss and index fields point into");
 			struct.add(EcoffSymr.dataType, "symr", " symbol for the external");
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);

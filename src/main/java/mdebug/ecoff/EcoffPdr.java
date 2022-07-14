@@ -332,7 +332,7 @@ public class EcoffPdr {
 				throw new AssertException(e);
 			}
 		}
-		struct.setToMachineAlignment();
+		struct.setToMachineAligned();
 		return struct;
 	}
 

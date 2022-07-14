@@ -394,7 +394,7 @@ public class EcoffFdr {
 			struct.addBitField(DWORD, 22, "reserved", "reserved for future use");
 			struct.add(DWORD, "cbLineOffset", " byte offset from header for this file ln's ");
 			struct.add(DWORD, "cbLine", " size of lines for this file ");
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);

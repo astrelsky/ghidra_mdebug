@@ -47,7 +47,7 @@ public class EcoffRelocation {
 			struct.addBitField(DWORD, 3, "r_reserved", null);
 			struct.addBitField(DWORD, 4, "r_type", "relocation type");
 			struct.addBitField(BooleanDataType.dataType, 1, "r_extern", "external flag");
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);
