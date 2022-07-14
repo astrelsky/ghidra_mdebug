@@ -77,7 +77,7 @@ public final class EcoffOptr {
 			struct.addBitField(DWORD, 24, "value", "address where we are moving it to");
 			struct.add(EcoffRndxr.dataType, "rndx", "points to a symbol or opt entry");
 			struct.add(DWORD, "offset", "relative offset this occured");
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);

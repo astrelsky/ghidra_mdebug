@@ -156,7 +156,7 @@ public final class EcoffSymr {
 
 			// max aux entries?
 			struct.addBitField(DWORD, 20, "index", "index into sym/aux table");
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);

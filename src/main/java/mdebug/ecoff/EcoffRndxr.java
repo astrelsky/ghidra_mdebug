@@ -64,7 +64,7 @@ final class EcoffRndxr {
 			Structure struct = new StructureDataType(EcoffHdrr.ECOFF_PATH, "RNDXR", 0);
 			struct.addBitField(DWORD, 12, "rfd", "index into the file indirect table");
 			struct.addBitField(DWORD, 20, "index", "index into sym/aux/iss tables");
-			struct.setToMachineAlignment();
+			struct.setToMachineAligned();
 			return struct;
 		} catch (InvalidDataTypeException e) {
 			throw new AssertException(e);
